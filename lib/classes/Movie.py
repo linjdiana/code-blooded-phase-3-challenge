@@ -29,4 +29,4 @@ class Movie:
     
     @classmethod
     def highest_rated(cls):
-        pass
+        return max(cls.reviews.rating)
