@@ -14,13 +14,21 @@ class Viewer:
     username = property(get_username, set_username)
 
     def reviews(self):
-        pass
+        return [review for review in Review.all if Review.viewer == self]
 
     def reviewed_movies(self):
-        pass
+        all_movies = []
+        from classes.Movie import Movie
+        for movie in self.movie():
+            if isinstance(self.movie, Movie):
+                all_movies.append(movie.game)
+        return all_movies
 
-    def movie_reviewed(self, movie):
-        pass
+    # def movie_reviewed(self, movie):
+    #     if movie in self.reviewed_movies():
+    #         return True
+    #     else:
+    #         return False
 
-    def rate_movie(self, movie, rating):
-        pass
+    # def rate_movie(self, movie, rating):
+    #     Review(self, movie,rating)

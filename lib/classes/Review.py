@@ -5,6 +5,7 @@ class Review:
         self.viewer = viewer
         self.movie = movie
         self.rating = rating
+        Review.all.append(self)
     
     # rating property goes here!
     def get_rating(self):

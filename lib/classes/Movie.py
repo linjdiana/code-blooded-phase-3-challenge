@@ -1,6 +1,5 @@
 from classes.Review import Review
 
-
 class Movie:
     def __init__(self, title):
         self.title = title
@@ -13,14 +12,21 @@ class Movie:
     title = property(get_title, set_title)
     
     def reviews(self):
-        pass
+        return [review for review in Review.all if review.movie == self]
 
     def reviewers(self):
-        pass
+        all_reviewers = []
+        for review in self.reviews():
+            all_reviewers.append(review.viewer)
+        return all_reviewers
 
     def average_rating(self):
-        pass
-
+        reviews = self.reviews()
+        ratings = [review.rating for review in reviews]
+        sum_ratings = sum(ratings)
+        num_ratings = len(ratings)
+        return sum_ratings / num_ratings
+    
     @classmethod
     def highest_rated(cls):
         pass
