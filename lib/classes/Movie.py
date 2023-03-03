@@ -28,5 +28,5 @@ class Movie:
         return sum_ratings / num_ratings
     
     @classmethod
-    def highest_rated(cls):
-        return max(cls.reviews.rating)
+    def highest_rated(cls, Review):
+        return cls(max(Review.rating))
